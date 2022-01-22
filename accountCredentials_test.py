@@ -9,7 +9,7 @@ class TestAccount(unittest.TestCase):
     def setUp(self):
         """setup method thats runs before each test case"""
         self.new_account = AccountCredentials(
-            "Grace", "4225", "Github")
+            "Grace", "4225", "github1", "Github")
 
     def tearDown(self):
         """method thats cleanup after each test case has run"""
@@ -20,6 +20,7 @@ class TestAccount(unittest.TestCase):
 
         self.assertEqual(self.new_account.username, "Grace")
         self.assertEqual(self.new_account.password, "4225")
+        self.assertEqual(self.new_account.key, "github1")
         self.assertEqual(self.new_account.acc, "Github")
 
     def test_save_accountDetails(self):
@@ -32,7 +33,7 @@ class TestAccount(unittest.TestCase):
         """method to check if we can save multiple accounts"""
         self.new_account.save_account()
         test_account = AccountCredentials(
-            "Faith", "220220", "facebook")
+            "Faith", "220220", "fb1", "facebook")
         test_account.save_account()
 
         self.assertEqual(len(AccountCredentials.account_list), 2)
@@ -41,7 +42,7 @@ class TestAccount(unittest.TestCase):
         """test to check if an account is removed from the list"""
         self.new_account.save_account()
         test_account = AccountCredentials(
-            "Faith", "220220", "facebook")
+            "Faith", "220220", "fb1", "facebook")
         test_account.save_account()
 
         self.new_account.delete_account()  # deleting an account

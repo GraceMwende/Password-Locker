@@ -3,10 +3,11 @@ class AccountCredentials:
 
     account_list = []
 
-    def __init__(self, username, password, account):
+    def __init__(self, username, password, key, account):
         """create account object details"""
         self.username = username
         self.password = password
+        self.key = key
         self.acc = account
 
     def save_account(self):
