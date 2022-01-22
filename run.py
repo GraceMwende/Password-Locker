@@ -83,7 +83,7 @@ def main():
             print("\n")
             print(f"New {account} account created\n")
 
-        if short_code == 'da':
+        elif short_code == 'da':
 
             if display_accounts():
                 print("Here is a list of all your accounts\n")
@@ -91,10 +91,32 @@ def main():
                 for account in display_accounts():
                     print(f"{account.acc} Account Credentials")
                     print(
-                        f"username:{account.username} ... password:{account.password}")
+                        f"username:{account.username} ... password:{account.password}...Key:{account.key}")
                     print("\n")
             else:
                 print("\n You don't have any saved accounts yet\n")
+
+        elif short_code == 'fa':
+            print("Enter key for account you want to search")
+
+            search_key = input()
+            if check_existing_accounts(search_key):
+                search_account = find_account(search_key)
+                print(f"{search_account.acc}Account")
+                print("-"*20)
+
+                print(f"Username.....{search_account.username}")
+                print(f"Password.....{search_account.password}")
+
+            else:
+                print("That account does not exist")
+
+        elif short_code == "exit":
+            print("Password Locker exiting ....")
+            break
+
+        else:
+            print("I did nou understand that.Please use short codes")
 
 
 if __name__ == "__main__":
