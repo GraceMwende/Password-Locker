@@ -32,3 +32,17 @@ class AccountCredentials:
         for account in cls.account_list:
             if account.key == acckey:
                 return account
+
+    @classmethod
+    def account_exist(cls, acckey):
+        """
+        check if account exists from the account list
+        Args:
+          key:key to search if it exists
+        Returns:
+          Boolean:True or false if the contact exists
+        """
+
+        for account in cls.account_list:
+            if account.key == acckey:
+                return True

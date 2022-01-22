@@ -60,6 +60,17 @@ class TestAccount(unittest.TestCase):
 
         self.assertEqual(found_account.key, test_account.key)
 
+    def test_account_exists(self):
+        """return false if we cannot find the account"""
+        self.new_account.save_account()
+        test_account = AccountCredentials(
+            "Faith", "220220", "fb1", "facebook")
+        test_account.save_account()
+
+        account_exists = AccountCredentials.account_exist("fb1")
+
+        self.assertTrue(account_exists)
+
 
 if __name__ == "__main__":
     unittest.main()
