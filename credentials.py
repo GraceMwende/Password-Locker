@@ -17,3 +17,18 @@ class AccountCredentials:
     def delete_account(self):
         """method that deletes a saved account from the list"""
         AccountCredentials.account_list.remove(self)
+
+    @classmethod
+    def find_by_key(cls, acckey):
+        """"
+        takes key and returns an account that matches that key
+
+        Args:
+          key: key to search for
+        Returns:
+          Account that matches the key
+        """
+
+        for account in cls.account_list:
+            if account.key == acckey:
+                return account

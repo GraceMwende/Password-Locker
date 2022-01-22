@@ -49,6 +49,17 @@ class TestAccount(unittest.TestCase):
 
         self.assertEqual(len(AccountCredentials.account_list), 1)
 
+    def test_find_account_by_key(self):
+        """checks if we can find account by key and display information"""
+        self.new_account.save_account()
+        test_account = AccountCredentials(
+            "Faith", "220220", "fb1", "facebook")
+        test_account.save_account()
+
+        found_account = AccountCredentials.find_by_key("fb1")
+
+        self.assertEqual(found_account.key, test_account.key)
+
 
 if __name__ == "__main__":
     unittest.main()
