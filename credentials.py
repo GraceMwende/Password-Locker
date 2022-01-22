@@ -46,3 +46,9 @@ class AccountCredentials:
         for account in cls.account_list:
             if account.key == acckey:
                 return True
+
+    @classmethod
+    def display_accounts(cls):
+        """returns the account list"""
+
+        return cls.account_list
