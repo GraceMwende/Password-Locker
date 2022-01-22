@@ -59,7 +59,7 @@ def main():
     print("Hello Welcome to password locker...\nWHAT WOULD YOU LIKE TO DO\n")
 
     while True:
-        print("Use these sort codes: \nsa - save Account, \nda -display accounts, \nfa - find account, \nda - delete account, \nexit -exit the application\n")
+        print("Use these sort codes: \nsa - save Account, \nda -display accounts, \nfa - find account, \ndel - delete account, \nexit -exit the application\n")
 
         short_code = input().lower()
 
@@ -111,12 +111,23 @@ def main():
             else:
                 print("That account does not exist")
 
+        elif short_code == "del":
+            print("Enter the key of the account you want to delete")
+            search_key = input()
+
+            if check_existing_accounts(search_key):
+                search_account = find_account(search_key)
+                delete_account(search_account)
+                print("Account deleted")
+            else:
+                print("Account does not exist")
+
         elif short_code == "exit":
             print("Password Locker exiting ....")
             break
 
         else:
-            print("I did nou understand that.Please use short codes")
+            print("I did not understand that.Please use short codes")
 
 
 if __name__ == "__main__":
