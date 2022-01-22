@@ -1,20 +1,28 @@
 #!/usr/bin/env python3.8
 from credentials import AccountCredentials
 
+# create account
+
 
 def create_account(username, password, key, acc):
-    new_account = AccountCredentials(username, password, key, acc)
+    new_account = AccountCredentials(username, password, acc, key)
     return new_account
+
+# save account
 
 
 def save_accounts(account):
     """function to save account"""
     account.save_account()
 
+# Delete account
+
 
 def delete_account(account):
     """function to delete account"""
     account.delete_account()
+
+# find account
 
 
 def find_account(acckey):
@@ -22,11 +30,15 @@ def find_account(acckey):
 
     return AccountCredentials.find_by_key(acckey)
 
+# check if account exists
+
 
 def check_existing_accounts(acckey):
     """function that checks if acounr exists with that key and returns boolean"""
 
     return AccountCredentials.account_exist(acckey)
+
+# display all accounts
 
 
 def display_accounts():
@@ -34,6 +46,43 @@ def display_accounts():
 
     return AccountCredentials.display_accounts()
 
+# delete an account
+
+
 def delete_account(account):
-  """function that deletes an account"""
-  account.delete_account()
+    """function that deletes an account"""
+    account.delete_account()
+
+
+# main function
+def main():
+    print("Hello Welcome to password locker...\nWHAT WOULD YOU LIKE TO DO\n")
+
+    while True:
+        print("Use these sort codes: \nsa - save Account, \nda -display accounts, \nfa - find account, \nda - delete account, \nexit -exit the application\n")
+
+        short_code = input().lower()
+
+        if short_code == 'sa':
+            print("New Account")
+            print("-"*10)
+
+            print("Username............")
+            username = input()
+
+            print("Password ...........")
+            password = input()
+
+            print("Name of the Account..")
+            account = input()
+
+            print("Key.................")
+            key = input()
+
+            save_accounts(create_account(username, password, account, key))
+            print("\n")
+            print(f"New {account} account created\n")
+
+
+if __name__ == "__main__":
+    main()
