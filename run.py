@@ -83,6 +83,19 @@ def main():
             print("\n")
             print(f"New {account} account created\n")
 
+        if short_code == 'da':
+
+            if display_accounts():
+                print("Here is a list of all your accounts\n")
+
+                for account in display_accounts():
+                    print(f"{account.acc} Account Credentials")
+                    print(
+                        f"username:{account.username} ... password:{account.password}")
+                    print("\n")
+            else:
+                print("\n You don't have any saved accounts yet\n")
+
 
 if __name__ == "__main__":
     main()
