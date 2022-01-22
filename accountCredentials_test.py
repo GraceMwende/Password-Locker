@@ -19,6 +19,11 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(self.new_account.phone, "0702081966")
         self.assertEqual(self.new_account.acc, "Github")
 
+    def test_save_accountDetails(self):
+        """check if credentials are saved into the accounts list"""
+        self.new_account.save_account()  # saving the account details
+        self.assertEqual(len(AccountCredentials.account_list), 1)
+
 
 if __name__ == "__main__":
     unittest.main()
