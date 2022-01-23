@@ -1,5 +1,7 @@
 #!/usr/bin/env python3.8
 from credentials import AccountCredentials
+import random
+import string
 
 # create account
 
@@ -54,7 +56,15 @@ def delete_account(account):
     account.delete_account()
 
 
+def generate_random_password():
+    source = string.ascii_letters + string.digits
+    result_str = ''.join((random.choice(source) for i in range(8)))
+    print(result_str)
+    return result_str
+
 # main function
+
+
 def main():
     print("Hello Welcome to password locker...\nWHAT WOULD YOU LIKE TO DO\n")
 
@@ -70,8 +80,16 @@ def main():
             print("Username............")
             username = input()
 
-            print("Password ...........")
-            password = input()
+            print("Create Password\n 1:create my own password 2:generate password")
+            choice = input("Enter your choice: ")
+
+            if(choice == "1"):
+                print("Enter Password:")
+                password = input()
+            elif(choice == "2"):
+                password = generate_random_password()
+            else:
+                print("Please choose an option")
 
             print("Name of the Account..")
             account = input()
