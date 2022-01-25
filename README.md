@@ -8,8 +8,6 @@ Teminal application
 
 Helps store various accounts eg social media, entertainment and you can view ur account and see the password for the accounts and therefore you dont have to remember your passwords for all your accounts
 
-## Project picture
-
 #### By **List of contributors**
 
 @GraceMwende
