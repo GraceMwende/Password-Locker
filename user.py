@@ -16,7 +16,7 @@ class User:
         User.user_list.append(self)
 
 
-# get random string of letters and digits
-source = string.ascii_letters + string.digits
-result_str = ''.join((random.choice(source) for i in range(4)))
-print(result_str)
+# # get random string of letters and digits
+# source = string.ascii_letters + string.digits
+# result_str = ''.join((random.choice(source) for i in range(4)))
+# print(result_str)

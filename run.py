@@ -36,7 +36,7 @@ def find_account(acckey):
 
 
 def check_existing_accounts(acckey):
-    """function that checks if acounr exists with that key and returns boolean"""
+    """function that checks if acount exists with that key and returns boolean"""
 
     return AccountCredentials.account_exist(acckey)
 
